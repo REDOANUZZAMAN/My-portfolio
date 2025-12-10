@@ -13,7 +13,8 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   // Performance optimizations
-  swcMinify: true,
+  // Use static export output for deploying to static hosts (cPanel)
+  output: 'export',
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

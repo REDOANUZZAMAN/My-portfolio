@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Contacting Me</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .email-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        .email-header p {
+            margin: 10px 0 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .email-body {
+            background: #ffffff;
+            padding: 40px 30px;
+            color: #334155;
+        }
+        .email-body h2 {
+            color: #1e293b;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 20px;
+        }
+        .email-body p {
+            color: #475569;
+            line-height: 1.7;
+            margin: 0 0 16px;
+            font-size: 15px;
+        }
+        .email-body a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .email-body a:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+        .highlight-box p {
+            margin: 0;
+            color: #334155;
+            font-style: italic;
+            font-size: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            margin: 30px 0 20px;
+            padding: 14px 32px;
+            background: #3b82f6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+        .cta-button:hover {
+            background: #2563eb;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+        }
+        .services-list {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+        .services-list h3 {
+            color: #1e293b;
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .services-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .services-list li {
+            color: #475569;
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .services-list li strong {
+            color: #1e293b;
+        }
+        .email-footer {
+            background: #1e293b;
+            color: #ffffff;
+            padding: 32px 30px;
+            text-align: center;
+        }
+        .email-footer p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        .social-links {
+            margin: 20px 0 10px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        .social-links a:hover {
+            color: #ffffff;
+        }
+        .divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 30px 0;
+        }
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .email-header {
+                border-radius: 0;
+            }
+            .email-header h1 {
+                font-size: 24px;
+            }
+            .email-body {
+                padding: 30px 20px;
+            }
+            .email-footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <h1>Thank You for Reaching Out!</h1>
+            <p>I appreciate you taking the time to contact me</p>
+        </div>
+
+        <!-- Body -->
+        <div class="email-body">
+            <h2>Hi {{name}},</h2>
+            
+            <p>Thank you for your message! I've received your inquiry and I'm excited to learn more about your project.</p>
+
+            <!-- Message Summary -->
+            <div class="highlight-box">
+                <p><strong>Your Message:</strong><br>
+                &ldquo;{{message}}&rdquo;</p>
+            </div>
+            
+            <!-- For testing, replace {{message}} above with a sample like:
+                 "Hi! I need help automating my e-commerce order processing with n8n and integrating it with Shopify, Stripe, and email notifications. Can you help?" -->
+
+            <p>I specialize in helping businesses and individuals automate their workflows and build powerful digital solutions using cutting-edge technologies.</p>
+
+            <!-- Services -->
+            <div class="services-list">
+                <h3 style="color: #333; margin-top: 0;">What I Can Help You With:</h3>
+                <ul>
+                    <li><strong>n8n Automation</strong> - Workflow automation and integration</li>
+                    <li><strong>LangChain & LangFlow</strong> - AI-powered solutions</li>
+                    <li><strong>Make & Zapier</strong> - Business process automation</li>
+                    <li><strong>Website Development</strong> - Modern, responsive websites</li>
+                    <li><strong>API Integration</strong> - Connect your tools seamlessly</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <p><strong>What Happens Next?</strong></p>
+            <p>I'll review your inquiry carefully and get back to you within <strong>24-48 hours</strong> with a detailed response. In the meantime, feel free to explore my portfolio to see examples of my work.</p>
+
+            <p><strong>Need a faster response?</strong> You can also reach me on WhatsApp at <a href="https://wa.me/8613258248276" style="color: #3b82f6; text-decoration: none; font-weight: 600;">+86 132 5824 8276</a> for urgent inquiries.</p>
+
+            <p>If you have any urgent questions or additional information to share, don't hesitate to reply to this email.</p>
+
+            <p style="margin-top: 30px;">
+                Best regards,<br>
+                <strong>REDOANUZZAMAN</strong><br>
+                <span style="color: #64748b;">Creative Designer & AI Automation Expert</span><br>
+                <a href="mailto:redoanuzzaman707@gmail.com" style="color: #3b82f6; text-decoration: none;">redoanuzzaman707@gmail.com</a>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <p style="color: #ffffff; font-weight: bold;">Let's Connect</p>
+            <div class="social-links">
+                <a href="mailto:redoanuzzaman707@gmail.com">Email</a> •
+                <a href="https://fiverr.com/redoanuzzaman">Fiverr</a> •
+                <a href="https://github.com/redoanuzzaman">GitHub</a>
+            </div>
+            <p style="margin-top: 20px;">© 2025 REDOANUZZAMAN. All rights reserved.</p>
+            <p style="font-size: 12px;">You're receiving this email because you contacted me through my portfolio website.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -13,8 +13,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   // Performance optimizations
-  // `swcMinify` is no longer a recognized option in newer Next.js versions.
-  // Next automatically uses its optimization/minifier; remove this key to avoid warnings.
+  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

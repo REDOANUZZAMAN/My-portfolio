@@ -37,6 +37,7 @@ const AdminProjects = () => {
     github_url: '',
     featured: false,
   });
+  const [uploading, setUploading] = useState(false);
 
   const handleEdit = (project: any) => {
     setEditingProject(project);
@@ -209,6 +210,50 @@ const AdminProjects = () => {
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl focus:outline-none focus:border-primary-500"
                 />
+                {/* File upload for project image */}
+                <div className="flex items-center gap-3">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      try {
+                        setUploading(true);
+                        // generate unique path
+                        const filePath = `project-images/${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+                        const { data, error: uploadError } = await supabase.storage
+                          .from('project-images')
+                          .upload(filePath, file, { cacheControl: '3600', upsert: false });
+                        if (uploadError) throw uploadError;
+                        // get public URL
+                        const { data: publicData } = supabase.storage.from('project-images').getPublicUrl(data.path);
+                        setFormData({ ...formData, image_url: publicData.publicUrl });
+                        toast.success('Image uploaded and URL set');
+                      } catch (err: any) {
+                        console.error('Upload error', err);
+                        toast.error(err.message || 'Failed to upload image');
+                      } finally {
+                        setUploading(false);
+                      }
+                    }}
+                    className="w-full"
+                  />
+                  {uploading && <span className="text-sm text-gray-400">Uploading...</span>}
+                </div>
+                {/* Image preview */}
+                {formData.image_url && (
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-400 mb-2">Preview</p>
+                    <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
+                      <img
+                        src={formData.image_url}
+                        alt="Preview"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
                 <input
                   type="text"
                   placeholder="Tech Tags (comma separated)"

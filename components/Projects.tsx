@@ -86,11 +86,20 @@ const Projects = ({ projects }: ProjectsProps) => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-500/20 to-accent-500/20">
-                <div className="w-full h-full flex items-center justify-center text-6xl opacity-30">
-                  🚀
-                </div>
+                {project.image_url ? (
+                  <img
+                    src={project.image_url}
+                    alt={project.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-6xl opacity-30">
+                    🚀
+                  </div>
+                )}
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 to-accent-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 to-accent-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
                   <a
                     href={project.project_url}
                     target="_blank"

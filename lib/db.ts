@@ -102,6 +102,18 @@ export const defaultData = {
       featured: false,
       created_at: new Date().toISOString(),
     },
+    {
+      id: '7',
+      title: 'Social Media Post Project',
+      description: 'Designed social media post graphics and reusable templates for campaigns.',
+      image_url: 'https://redoan.dev/wp-content/uploads/2025/09/Screenshot-2025-09-24-152604.png',
+      tech_tags: ['Design', 'Social Media', 'Graphics'],
+      project_url: '#',
+      github_url: '#',
+      order: 7,
+      featured: false,
+      created_at: new Date().toISOString(),
+    },
   ],
   services: [
     {

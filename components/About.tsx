@@ -11,7 +11,6 @@ interface AboutProps {
   image_frame?: string;
 }
 
-const About = ({ title, description, image_url }: AboutProps) => {
 const About = ({ title, description, image_url, image_frame }: AboutProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });

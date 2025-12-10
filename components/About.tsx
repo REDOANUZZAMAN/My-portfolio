@@ -8,9 +8,11 @@ interface AboutProps {
   title: string;
   description: string;
   image_url: string;
+  image_frame?: string;
 }
 
 const About = ({ title, description, image_url }: AboutProps) => {
+const About = ({ title, description, image_url, image_frame }: AboutProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -49,12 +51,10 @@ const About = ({ title, description, image_url }: AboutProps) => {
         >
           {/* Image Side */}
           <motion.div variants={itemVariants} className="relative">
-            <div className="glass rounded-3xl overflow-hidden aspect-square">
-              <img 
-                src="https://redoan.dev/wp-content/uploads/2025/09/Weixin-Image_20250921025540_83_37-1.jpg" 
-                alt="REDOANUZZAMAN"
-                className="w-full h-full object-cover"
-              />
+            <div className={`glass ${
+              image_frame === 'circle' ? 'rounded-full' : 'rounded-3xl'
+            } overflow-hidden aspect-square`}>
+              <img src={image_url} alt="REDOANUZZAMAN" className="w-full h-full object-cover" />
             </div>
             {/* Floating Badge */}
             <motion.div
